@@ -5,7 +5,7 @@ export function Hero() {
   return (
     <div className="mb-8 flex flex-col items-center text-center">
       <div className="mb-16 flex items-center justify-center">
-        <div className="flex items-center gap-1">
+        <div className="gap- flex items-center">
           <Image
             src={logo}
             alt="Lexos logo"
@@ -20,7 +20,9 @@ export function Hero() {
 
       <h1 className="mb-4 text-4xl font-bold tracking-tight sm:text-5xl">
         Create professional resumes with{" "}
-        <span className="text-primary">AI assistance</span>
+        <span className="text-green-600 dark:text-green-400">
+          AI assistance
+        </span>
       </h1>
       <p className="text-lg text-muted-foreground">
         Build and customize your resume with our intuitive editor and AI-powered
