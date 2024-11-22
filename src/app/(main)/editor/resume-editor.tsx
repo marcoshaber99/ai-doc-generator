@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import GeneralInfoForm from "./forms/general-info-form";
+import { PersonalInfoForm } from "./forms/personal-info-form";
 
 export default function ResumeEditor() {
   return (
@@ -31,7 +32,7 @@ export default function ResumeEditor() {
             )}
           >
             <div className="h-full overflow-y-auto px-6 py-6">
-              <GeneralInfoForm />
+              <PersonalInfoForm />
             </div>
           </div>
 
