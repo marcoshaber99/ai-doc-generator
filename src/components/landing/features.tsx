@@ -18,7 +18,7 @@ export function Features() {
   ];
 
   return (
-    <div className="mt-16 grid gap-8 sm:grid-cols-2">
+    <div className="grid gap-4 px-4 sm:grid-cols-2 sm:gap-8 sm:px-0">
       {features.map((feature) => (
         <FeatureCard key={feature.title} {...feature} />
       ))}

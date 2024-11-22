@@ -9,6 +9,11 @@ export default function ResumeEditor() {
   return (
     <div className="flex grow flex-col">
       <header className="space-y-2 border-b border-border px-6 py-8 text-center">
+        <div className="mb-4">
+          <Button variant="ghost" size="sm" asChild>
+            <Link href="/resumes">← Back to Resumes</Link>
+          </Button>
+        </div>
         <h1 className="text-3xl font-semibold tracking-tight">Create Resume</h1>
         <p className="text-sm text-muted-foreground">
           Follow the steps below to create your resume. Your progress will be

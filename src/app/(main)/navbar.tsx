@@ -15,8 +15,8 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 border-b bg-background/95 backdrop-blur">
       <div className="mx-auto flex h-14 max-w-7xl items-center justify-between px-4">
         <Link
-          href="/resumes"
-          className="flex items-center gap-2.5 transition-opacity hover:opacity-90"
+          href="/"
+          className="flex items-center gap-1 transition-opacity hover:opacity-90"
         >
           <Image
             src={logo}
