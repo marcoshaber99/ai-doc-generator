@@ -4,9 +4,25 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import GeneralInfoForm from "./forms/general-info-form";
-import { PersonalInfoForm } from "./forms/personal-info-form";
+import PersonalInfoForm from "./forms/personal-info-form";
+import { useSearchParams } from "next/navigation";
+import { steps } from "./steps";
+import Breadcrumbs from "./breadcrumbs";
 
 export default function ResumeEditor() {
+  const searchParams = useSearchParams();
+  const currentStep = searchParams.get("step") || steps[0].key;
+
+  function setStep(key: string) {
+    const newSearchParams = new URLSearchParams(searchParams.toString());
+    newSearchParams.set("step", key);
+    window.history.pushState(null, "", `?${newSearchParams.toString()}`);
+  }
+
+  const FormComponent = steps.find(
+    (step) => step.key === currentStep,
+  )?.component;
+
   return (
     <div className="flex grow flex-col">
       <header className="space-y-2 border-b border-border px-6 py-8 text-center">
@@ -32,7 +48,8 @@ export default function ResumeEditor() {
             )}
           >
             <div className="h-full overflow-y-auto px-6 py-6">
-              <PersonalInfoForm />
+              <Breadcrumbs currentStep={currentStep} setCurrentStep={setStep} />
+              {FormComponent && <FormComponent />}
             </div>
           </div>
 
