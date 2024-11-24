@@ -3,12 +3,12 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
-import GeneralInfoForm from "./forms/general-info-form";
-import PersonalInfoForm from "./forms/personal-info-form";
+// import GeneralInfoForm from "./forms/general-info-form";
+// import PersonalInfoForm from "./forms/personal-info-form";
 import { useSearchParams } from "next/navigation";
 import { steps } from "./steps";
 import Breadcrumbs from "./breadcrumbs";
-
+import Footer from "./footer";
 export default function ResumeEditor() {
   const searchParams = useSearchParams();
   const currentStep = searchParams.get("step") || steps[0].key;
@@ -61,23 +61,7 @@ export default function ResumeEditor() {
           </div>
         </div>
       </main>
-
-      <footer className="flex flex-col-reverse gap-4 border-t border-border px-4 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6">
-        <div className="flex flex-col gap-2 sm:flex-row">
-          <Button variant="outline" size="sm">
-            Previous Step
-          </Button>
-          <Button size="sm">Next Step</Button>
-        </div>
-        <div className="flex items-center justify-between sm:gap-4">
-          <Button variant="ghost" size="sm" asChild>
-            <Link href="/resumes">Exit</Link>
-          </Button>
-          <span className="text-xs text-muted-foreground sm:text-sm">
-            Saving...
-          </span>
-        </div>
-      </footer>
+      <Footer currentStep={currentStep} setCurrentStep={setStep} />
     </div>
   );
 }

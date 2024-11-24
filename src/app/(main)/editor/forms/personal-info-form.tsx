@@ -1,5 +1,4 @@
 import { useForm } from "react-hook-form";
-import { z } from "zod";
 import { personalInfoSchema } from "@/lib/validation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { PersonalInfo } from "@/lib/validation";
