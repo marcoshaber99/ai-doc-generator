@@ -9,8 +9,14 @@ import { useSearchParams } from "next/navigation";
 import { steps } from "./steps";
 import Breadcrumbs from "./breadcrumbs";
 import Footer from "./footer";
+import { useState } from "react";
+import { ResumeValues } from "@/lib/validation";
+
 export default function ResumeEditor() {
   const searchParams = useSearchParams();
+
+  const [resumeData, setResumeData] = useState<ResumeValues>({});
+
   const currentStep = searchParams.get("step") || steps[0].key;
 
   function setStep(key: string) {
@@ -49,14 +55,19 @@ export default function ResumeEditor() {
           >
             <div className="h-full overflow-y-auto px-6 py-6">
               <Breadcrumbs currentStep={currentStep} setCurrentStep={setStep} />
-              {FormComponent && <FormComponent />}
+              {FormComponent && (
+                <FormComponent
+                  resumeData={resumeData}
+                  setResumeData={setResumeData}
+                />
+              )}
             </div>
           </div>
 
           {/* Right panel - Preview */}
           <div className="hidden md:block md:w-1/2">
             <div className="h-full overflow-y-auto px-6 py-6">
-              Preview will go here
+              <pre>{JSON.stringify(resumeData, null, 2)}</pre>
             </div>
           </div>
         </div>

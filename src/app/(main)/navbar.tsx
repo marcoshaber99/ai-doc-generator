@@ -20,7 +20,7 @@ export default function Navbar() {
         >
           <Image
             src={logo}
-            alt="Lexos logo"
+            alt="logo of lexos"
             width={32}
             height={32}
             className="rounded-full"
