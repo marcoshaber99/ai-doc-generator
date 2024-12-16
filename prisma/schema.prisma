@@ -27,8 +27,27 @@ model Resume {
   phone       String?
   email       String?
 
+  createdAt      DateTime         @default(now())
+  updatedAt      DateTime         @updatedAt
+  WorkExperience WorkExperience[]
+
+  @@map("resumes")
+}
+
+model WorkExperience {
+  id       String @id @default(cuid())
+  resumeId String
+
+  position    String
+  company     String
+  startDate   DateTime
+  endDate     DateTime?
+  description String?
+
+  resume Resume @relation(fields: [resumeId], references: [id])
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  @@map("resumes")
+  @@map("work_experiences")
 }
